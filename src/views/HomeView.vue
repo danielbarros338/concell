@@ -30,5 +30,6 @@ export default {
 .router__view {
   width: 73vw;
   height: 100vh;
+  background-color: var(--color-primary-dark);
 }
 </style>
