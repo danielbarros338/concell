@@ -1,19 +1,27 @@
+// Views
+import HomeView from "../views/HomeView.vue";
+
+// Components
+import LoginComponent from "../components/home/LoginComponent.vue";
 
 const routes = [
   {
-    path: '/',
-    component: () => import('layouts/MainLayout.vue'),
+    path: "/",
+    name: "home",
+    component: HomeView,
+    redirect: "login",
     children: [
-      { path: '', component: () => import('pages/IndexPage.vue') }
-    ]
+      {
+        path: "login",
+        name: "login",
+        component: LoginComponent,
+      },
+    ],
   },
-
-  // Always leave this as last one,
-  // but you can also remove it
   {
-    path: '/:catchAll(.*)*',
-    component: () => import('pages/ErrorNotFound.vue')
-  }
-]
+    path: "/:catchAll(.*)*",
+    redirect: { name: "home" },
+  },
+];
 
-export default routes
+export default routes;
