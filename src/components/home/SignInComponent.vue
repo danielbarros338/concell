@@ -1,6 +1,6 @@
 <template>
   <q-card class="login__card">
-    <h4>Realizar login</h4>
+    <h4>Login</h4>
     <q-card-section class="content__container">
       <q-input
         class="inputs"
@@ -61,7 +61,6 @@ export default {
 /* Elements */
 .login__card h4 {
   text-align: center;
-  margin: 10px;
 }
 .content__container .inputs {
   width: 100%;
