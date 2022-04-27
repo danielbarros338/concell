@@ -1,9 +1,13 @@
 <template>
   <q-page class="login__container">
-    <transition>
+    <transition-group
+      enter-active-class="animated delay-1s bounceIn"
+      leave-active-class="animated bounceOut"
+    >
+      <!-- Fazer correção da movimentação lateral -->
       <SignIn v-if="signInCard" @callSignUp="changeCards" />
       <SignUp v-if="signUpCard" @callSignIn="changeCards" />
-    </transition>
+    </transition-group>
   </q-page>
 </template>
 
@@ -38,7 +42,13 @@ export default {
 /* Containers */
 .login__container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+}
+/* Transition */
+.lazy {
+  display: none;
+  transition: 2s ease-in;
 }
 </style>

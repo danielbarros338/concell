@@ -1,5 +1,10 @@
 <template>
-  <q-card class="login__card"> teste </q-card>
+  <q-card class="login__card">
+    <q-card-section class="btn__container">
+      <q-btn class="btns" label="Voltar" @click="$emit('callSignIn', true)" />
+      <q-btn class="btns" label="Cadastrar" />
+    </q-card-section>
+  </q-card>
 </template>
 
 <style scoped>
