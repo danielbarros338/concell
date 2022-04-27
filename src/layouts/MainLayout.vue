@@ -1,8 +1,10 @@
 <template>
-  <main class="container">
+  <q-layout class="container">
     <div class="banner__container"></div>
-    <router-view class="router__view" />
-  </main>
+    <q-page-container class="router__view">
+      <router-view />
+    </q-page-container>
+  </q-layout>
 </template>
 
 <script>

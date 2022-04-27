@@ -1,9 +1,9 @@
 <template>
-  <div class="login__container">
+  <q-page class="login__container">
     <q-card class="login__card">
       <h3>Login</h3>
     </q-card>
-  </div>
+  </q-page>
 </template>
 
 <script>

@@ -1,5 +1,5 @@
-// Views
-import HomeView from "../views/HomeView.vue";
+// Layouts
+import MainLayout from "../layouts/MainLayout.vue";
 
 // Components
 import LoginComponent from "../components/home/LoginComponent.vue";
@@ -8,7 +8,7 @@ const routes = [
   {
     path: "/",
     name: "home",
-    component: HomeView,
+    component: MainLayout,
     redirect: "login",
     children: [
       {
