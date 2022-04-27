@@ -1,34 +1,25 @@
 <template>
   <q-page class="login__container">
-    <q-card class="login__card">
-      <h3>Login</h3>
-    </q-card>
+    <SignIn />
   </q-page>
 </template>
 
 <script>
+import SignIn from "components/home/SignInComponent.vue";
+
 export default {
   name: "LoginComponent",
+  components: {
+    SignIn,
+  },
 };
 </script>
 
 <style scoped>
 /* Containers */
-.login__container,
-.login__card {
+.login__container {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.login__container {
-  height: 100%;
-}
-.login__card {
-  background-color: var(--color-secondary);
-  padding: 10px;
-}
-/* Elements */
-.login__card h3 {
-  margin: 10px;
 }
 </style>
