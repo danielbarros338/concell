@@ -2,7 +2,7 @@
 import MainLayout from "../layouts/MainLayout.vue";
 
 // Components
-import LoginComponent from "../components/home/LoginComponent.vue";
+import LoginPage from "../views/LoginPage.vue";
 
 const routes = [
   {
@@ -14,7 +14,7 @@ const routes = [
       {
         path: "login",
         name: "login",
-        component: LoginComponent,
+        component: LoginPage,
       },
     ],
   },
