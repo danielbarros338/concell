@@ -7,12 +7,15 @@
         v-model="user"
         label="Usuário"
         color="blue-grey-14"
+        maxlength="100"
       />
       <q-input
         class="inputs"
         v-model="password"
+        type="password"
         label="Senha"
         color="blue-grey-14"
+        maxlength="20"
       />
     </q-card-section>
     <q-card-section class="btn__container">
