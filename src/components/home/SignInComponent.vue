@@ -19,7 +19,11 @@
       />
     </q-card-section>
     <q-card-section class="btn__container">
-      <q-btn class="btns" label="Cadastrar usuário" />
+      <q-btn
+        class="btns"
+        label="Cadastrar usuário"
+        @click="$emit('callSignUp', true)"
+      />
       <q-btn class="btns" label="Login" />
     </q-card-section>
   </q-card>
