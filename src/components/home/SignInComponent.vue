@@ -22,7 +22,7 @@
         label="Cadastrar usuário"
         @click="$emit('callSignUp', true)"
       />
-      <q-btn class="btns" label="Login" />
+      <q-btn class="btns" label="Login" to="dashboard" />
     </q-card-section>
   </q-card>
 </template>

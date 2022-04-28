@@ -1,5 +1,6 @@
 // Layouts
-import MainLayout from "../layouts/MainLayout.vue";
+import MainLayout from "src/layouts/MainLayout.vue";
+import DashboardLayout from "src/layouts/DashboardLayout.vue";
 
 // Components
 import LoginPage from "../views/LoginPage.vue";
@@ -15,6 +16,11 @@ const routes = [
         path: "login",
         name: "login",
         component: LoginPage,
+      },
+      {
+        path: "dashboard",
+        name: "dashboard",
+        component: DashboardLayout,
       },
     ],
   },
