@@ -5,16 +5,18 @@
       <q-input
         class="inputs"
         v-model="user"
+        outlined
         label="Usuário"
-        color="blue-grey-14"
+        color="grey-9"
         maxlength="100"
       />
       <q-input
         class="inputs"
         v-model="password"
+        outlined
         type="password"
         label="Senha"
-        color="blue-grey-14"
+        color="grey-9"
         maxlength="20"
       />
     </q-card-section>
