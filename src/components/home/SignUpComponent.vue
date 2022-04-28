@@ -1,40 +1,19 @@
 <template>
   <q-card class="login__card">
-    <BaseInput />
     <h4>Cadastrar usuário de login</h4>
     <q-card-section class="content__container">
-      <q-input
-        dense
-        v-model="userData.name"
+      <BaseInput v-model="userData.name" class="inputs" label="Nome" />
+      <BaseInput v-model="userData.surname" class="inputs" label="Sobrenome" />
+      <BaseInput
+        v-model="userData.userName"
         class="inputs"
-        standout="bg-grey-9"
-        label="Nome"
-        color="grey-9"
+        label="Nome de usuário"
       />
-      <q-input
-        dense
-        v-model="userData.surname"
+      <BaseInput v-model="userData.password" class="inputs" label="Senha" />
+      <BaseInput
+        v-model="userData.confirmPassword"
         class="inputs"
-        standout="bg-grey-9"
-        label="Sobrenome"
-        color="grey-9"
-      />
-      <q-input
-        dense
-        v-model="userData.user"
-        class="inputs"
-        standout="bg-grey-9"
-        label="Usuário"
-        color="grey-9"
-      />
-      <q-input
-        dense
-        v-model="userData.password"
-        class="inputs"
-        standout="bg-grey-9"
-        label="Senha"
-        type="password"
-        color="grey-9"
+        label="Confirme sua senha"
       />
     </q-card-section>
     <q-card-section class="btn__container">
@@ -63,7 +42,8 @@ export default {
 <style scoped>
 /* Containers */
 .login__card,
-.content__container {
+.content__container,
+.btn__container {
   display: flex;
   flex-wrap: wrap;
 }
@@ -71,6 +51,10 @@ export default {
 .content__container {
   justify-content: center;
   align-items: center;
+}
+.btn__container {
+  justify-content: space-between;
+  width: 100%;
 }
 .login__card {
   background-color: var(--color-secondary);
@@ -84,5 +68,8 @@ export default {
 }
 .inputs:first-child {
   margin-top: 0;
+}
+.btns {
+  width: 45%;
 }
 </style>
