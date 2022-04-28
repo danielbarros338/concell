@@ -2,21 +2,17 @@
   <q-card class="login__card">
     <h4>Login</h4>
     <q-card-section class="content__container">
-      <q-input
+      <BaseInput
         class="inputs"
         v-model="user"
-        outlined
         label="Usuário"
-        color="grey-9"
         maxlength="100"
       />
-      <q-input
+      <BaseInput
         class="inputs"
         v-model="password"
-        outlined
         type="password"
         label="Senha"
-        color="grey-9"
         maxlength="20"
       />
     </q-card-section>
@@ -58,7 +54,7 @@ export default {
   width: 40%;
 }
 .content__container {
-  width: 90%;
+  width: 100%;
 }
 .login__card {
   background-color: var(--color-secondary);
@@ -69,6 +65,10 @@ export default {
   text-align: center;
 }
 .content__container .inputs {
+  margin-top: 2%;
   width: 100%;
+}
+.content__container .inputs:first-child {
+  margin-top: 0;
 }
 </style>
