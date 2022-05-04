@@ -16,6 +16,13 @@
         <q-tab><q-icon name="fa-solid fa-mobile" />Estoque de peças</q-tab>
       </q-tabs>
     </q-header>
+    <q-page-container class="route__container">
+      <router-view class="router" />
+    </q-page-container>
+    <q-footer class="bg-amber-7 text-caption text-right footer__container">
+      Powered by: Daniel Barros
+      <q-icon style="margin-right: 2%" name="fa-solid fa-copyright" />
+    </q-footer>
   </q-layout>
 </template>
 
@@ -32,8 +39,20 @@ export default {
 
 <style scoped>
 /* Containers */
-.header__container {
+.header__container,
+.footer__container {
   color: var(--color-primary);
 }
+.route__container {
+  width: 100%;
+}
 /* Elements */
+.router {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  height: 100%;
+  width: 100%;
+}
 </style>

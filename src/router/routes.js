@@ -2,8 +2,9 @@
 import MainLayout from "src/layouts/MainLayout.vue";
 import DashboardLayout from "src/layouts/DashboardLayout.vue";
 
-// Components
+// Views
 import LoginPage from "../views/LoginPage.vue";
+import DashboardPage from "../views/DashboardPage.vue";
 
 const routes = [
   {
@@ -21,6 +22,13 @@ const routes = [
         path: "dashboard",
         name: "dashboard",
         component: DashboardLayout,
+        children: [
+          {
+            path: "",
+            name: "dashboard.home",
+            component: DashboardPage,
+          },
+        ],
       },
     ],
   },
