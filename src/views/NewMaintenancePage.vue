@@ -9,7 +9,7 @@ export default {
 </script>
 
 <style scoped>
-.maintenance__card {
+.new_maintenance__card {
   padding: 1%;
   background-color: var(--color-secondary);
 }
