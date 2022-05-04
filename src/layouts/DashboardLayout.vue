@@ -10,10 +10,21 @@
         </BaseInput>
       </q-toolbar>
       <q-tabs class="tab">
-        <q-tab><q-icon name="fa-solid fa-wrench" />Nova manutenção</q-tab>
-        <q-tab><q-icon name="fa-solid fa-user" />Cadastros</q-tab>
-        <q-tab><q-icon name="fa-solid fa-gear" />Manutenções</q-tab>
-        <q-tab><q-icon name="fa-solid fa-mobile" />Estoque de peças</q-tab>
+        <q-tab @click="goTo('dashboard.home')"
+          ><q-icon name="fa-solid fa-home" />Início</q-tab
+        >
+        <q-tab @click="goTo('dashboard.newmaintenance')"
+          ><q-icon name="fa-solid fa-wrench" />Nova manutenção</q-tab
+        >
+        <q-tab @click="goTo('dashboard.newclients')"
+          ><q-icon name="fa-solid fa-user" />Cadastros</q-tab
+        >
+        <q-tab @click="goTo('dashboard.maintenance')"
+          ><q-icon name="fa-solid fa-gear" />Manutenções</q-tab
+        >
+        <q-tab @click="goTo('dashboard.stock')"
+          ><q-icon name="fa-solid fa-mobile" />Estoque de peças</q-tab
+        >
       </q-tabs>
     </q-header>
     <q-page-container class="route__container">
@@ -33,6 +44,11 @@ export default {
     return {
       name: "Daniel",
     };
+  },
+  methods: {
+    goTo(route) {
+      this.$router.push({ name: route });
+    },
   },
 };
 </script>
