@@ -1,5 +1,5 @@
 <template>
-  <div class="content__container">
+  <q-card-section class="content__container">
     <BaseInput
       v-model="client.name"
       class="inputs"
@@ -24,7 +24,10 @@
       label="CPF"
       mask="###.###.###-##"
     />
-  </div>
+    <div class="btn__container">
+      <q-btn class="btns" label="Próximo" @click="$emit('click', 2)" />
+    </div>
+  </q-card-section>
 </template>
 
 <script>
@@ -42,3 +45,13 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.inputs {
+  margin: 2% 0;
+}
+.btn__container {
+  display: flex;
+  justify-content: flex-end;
+}
+</style>

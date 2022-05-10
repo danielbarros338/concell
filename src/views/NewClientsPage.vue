@@ -3,9 +3,9 @@
     <q-card class="new_clients__card">
       <h3>Cadastro de clientes</h3>
       <div class="content__container">
-        <StepOneComponent v-if="step == 1" />
-        <StepTwoComponent v-if="step == 2" />
-        <StepThreeComponent v-if="step == 3" />
+        <StepOneComponent v-if="step == 1" @click="getStep" />
+        <StepTwoComponent v-if="step == 2" @click="getStep" />
+        <StepThreeComponent v-if="step == 3" @click="getStep" />
       </div>
     </q-card>
   </q-page>
@@ -41,6 +41,15 @@ export default {
         email: null,
       },
     };
+  },
+  methods: {
+    getStep(emit) {
+      if (typeof emit === "number") this.step = emit;
+      if (emit === 4) {
+        alert("Implementar mensagem de cadastro com sucesso");
+        this.step = 1;
+      }
+    },
   },
 };
 </script>

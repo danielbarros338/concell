@@ -1,5 +1,5 @@
 <template>
-  <div class="content__container">
+  <q-card-section class="content__container">
     <BaseInput
       v-model="client.state"
       class="inputs"
@@ -31,7 +31,11 @@
       maxlength="50"
     />
     <BaseInput v-model="client.cep" class="inputs" label="CEP" maxlength="50" />
-  </div>
+    <div class="btn__container">
+      <q-btn class="btns" label="Anterior" @click="$emit('click', 1)" />
+      <q-btn class="btns" label="Próximo" @click="$emit('click', 3)" />
+    </div>
+  </q-card-section>
 </template>
 
 <script>
@@ -51,3 +55,13 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.inputs {
+  margin: 2% 0;
+}
+.btn__container {
+  display: flex;
+  justify-content: space-between;
+}
+</style>
