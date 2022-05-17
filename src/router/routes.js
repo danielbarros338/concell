@@ -1,56 +1,44 @@
-// Layouts
-import MainLayout from "src/layouts/MainLayout.vue";
-import DashboardLayout from "src/layouts/DashboardLayout.vue";
-
-// Views
-import LoginPage from "src/views/LoginPage.vue";
-import DashboardPage from "src/views/DashboardPage.vue";
-import NewMaintenancePage from "src/views/NewMaintenancePage.vue";
-import NewClientsPage from "src/views/NewClientsPage.vue";
-import MaintenancePage from "src/views/MaintenancePage.vue";
-import StockPage from "../views/StockPage.vue";
-
 const routes = [
   {
     path: "/",
     name: "home",
-    component: MainLayout,
+    component: () => import("src/layouts/MainLayout.vue"),
     redirect: "login",
     children: [
       {
         path: "login",
         name: "login",
-        component: LoginPage,
+        component: () => import("src/views/LoginPage.vue"),
       },
       {
         path: "dashboard",
         name: "dashboard",
-        component: DashboardLayout,
+        component: () => import("src/layouts/DashboardLayout.vue"),
         children: [
           {
             path: "",
             name: "dashboard.home",
-            component: DashboardPage,
+            component: () => import("src/views/DashboardPage.vue"),
           },
           {
             path: "newmaintenance",
             name: "dashboard.newmaintenance",
-            component: NewMaintenancePage,
+            component: () => import("src/views/NewMaintenancePage.vue"),
           },
           {
             path: "newclients",
             name: "dashboard.newclients",
-            component: NewClientsPage,
+            component: () => import("src/views/NewClientsPage.vue"),
           },
           {
             path: "maintenance",
             name: "dashboard.maintenance",
-            component: MaintenancePage,
+            component: () => import("src/views/MaintenancePage.vue"),
           },
           {
             path: "stock",
             name: "dashboard.stock",
-            component: StockPage,
+            component: () => import("src/views/StockPage.vue"),
           },
         ],
       },
