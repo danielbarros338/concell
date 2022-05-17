@@ -13,8 +13,12 @@
       maxlength="50"
     />
     <div class="btn__container">
-      <q-btn class="btns" label="Anterior" @click="$emit('click', 2)" />
-      <q-btn class="btns" label="Concluir" @click="$emit('click', 4)" />
+      <q-btn
+        class="btns"
+        label="Anterior"
+        :to="{ name: 'dashboard.newclients.2' }"
+      />
+      <q-btn class="btns" label="Concluir" />
     </div>
   </q-card-section>
 </template>

@@ -32,8 +32,16 @@
     />
     <BaseInput v-model="client.cep" class="inputs" label="CEP" maxlength="50" />
     <div class="btn__container">
-      <q-btn class="btns" label="Anterior" @click="$emit('click', 1)" />
-      <q-btn class="btns" label="Próximo" @click="$emit('click', 3)" />
+      <q-btn
+        class="btns"
+        label="Anterior"
+        :to="{ name: 'dashboard.newclients.1' }"
+      />
+      <q-btn
+        class="btns"
+        label="Próximo"
+        :to="{ name: 'dashboard.newclients.3' }"
+      />
     </div>
   </q-card-section>
 </template>

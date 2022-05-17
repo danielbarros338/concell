@@ -16,7 +16,7 @@
         <q-tab @click="goTo('dashboard.newmaintenance')"
           ><q-icon name="fa-solid fa-wrench" />Nova manutenção</q-tab
         >
-        <q-tab @click="goTo('dashboard.newclients')"
+        <q-tab @click="goTo('dashboard.clients')"
           ><q-icon name="fa-solid fa-user" />Cadastros</q-tab
         >
         <q-tab @click="goTo('dashboard.maintenance')"
