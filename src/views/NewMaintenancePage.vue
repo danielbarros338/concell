@@ -1,16 +1,16 @@
 <template>
-  <q-page><q-card class="new_maintenance__card">NewMaintenance</q-card></q-page>
+  <q-page>
+    <router-view />
+  </q-page>
 </template>
 
 <script>
 export default {
   name: "NewMaintenancePage",
+  data() {
+    return {
+      options: ["Fulanin", "Cicranin"],
+    };
+  },
 };
 </script>
-
-<style scoped>
-.new_maintenance__card {
-  padding: 1%;
-  background-color: var(--color-secondary);
-}
-</style>

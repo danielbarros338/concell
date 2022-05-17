@@ -23,7 +23,34 @@ const routes = [
           {
             path: "newmaintenance",
             name: "dashboard.newmaintenance",
+            redirect: { name: "dashboard.newmaintenance.clientdata" },
             component: () => import("src/views/NewMaintenancePage.vue"),
+            children: [
+              {
+                path: "clientdata",
+                name: "dashboard.newmaintenance.clientdata",
+                component: () =>
+                  import(
+                    "src/components/newMaintenance/ClientDataComponent.vue"
+                  ),
+              },
+              {
+                path: "cellphonedata",
+                name: "dashboard.newmaintenance.cellphonedata",
+                component: () =>
+                  import(
+                    "src/components/newMaintenance/CellphoneDataComponent.vue"
+                  ),
+              },
+              {
+                path: "problemdesription",
+                name: "dashboard.newmaintenance.problemdescription",
+                component: () =>
+                  import(
+                    "src/components/newMaintenance/ProblemDescriptionComponent.vue"
+                  ),
+              },
+            ],
           },
           {
             path: "clients",
