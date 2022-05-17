@@ -1,7 +1,11 @@
 <template>
   <q-page class="client__container">
     <div class="btn__container">
-      <q-btn label="Clientes Cadastrados" class="btns" />
+      <q-btn
+        label="Clientes Cadastrados"
+        class="btns"
+        :to="{ name: 'dashboard.clientlist' }"
+      />
       <q-btn
         label="Cadastrar novos clientes"
         class="btns"
