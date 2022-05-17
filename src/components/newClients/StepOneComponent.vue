@@ -56,11 +56,15 @@ export default {
 </script>
 
 <style scoped>
+.content__container {
+  background-color: var(--color-secondary);
+}
 .inputs {
   margin: 2% 0;
 }
 .btn__container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  margin-top: 4%;
 }
 </style>

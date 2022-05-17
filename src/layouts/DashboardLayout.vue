@@ -17,7 +17,7 @@
           ><q-icon name="fa-solid fa-wrench" />Nova manutenção</q-tab
         >
         <q-tab @click="goTo('dashboard.clients')"
-          ><q-icon name="fa-solid fa-user" />Cadastros</q-tab
+          ><q-icon name="fa-solid fa-user" />Clientes</q-tab
         >
         <q-tab @click="goTo('dashboard.maintenance')"
           ><q-icon name="fa-solid fa-gear" />Manutenções</q-tab
@@ -70,5 +70,7 @@ export default {
   align-content: center;
   height: 100%;
   width: 100%;
+  background-color: var(--color-primary-dark);
+  box-shadow: 0 0 5px inset #000;
 }
 </style>
