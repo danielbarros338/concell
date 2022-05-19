@@ -33,6 +33,10 @@ export default {
   width: 100%;
 }
 .router_view__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2%;
   width: 90%;
 }
 /* Elements */
