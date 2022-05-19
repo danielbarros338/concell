@@ -87,6 +87,26 @@ const routes = [
             path: "maintenance",
             name: "dashboard.maintenance",
             component: () => import("src/views/MaintenancePage.vue"),
+            children: [
+              {
+                path: "oslist",
+                name: "dashboard.maintenance.oslist",
+                component: () =>
+                  import("src/components/maintenance/ServiceOrderList.vue"),
+              },
+              {
+                path: "historyoslist",
+                name: "dashboard.maintenance.historyoslist",
+                component: () =>
+                  import("src/components/maintenance/HistoryOSList.vue"),
+              },
+              {
+                path: "editos",
+                name: "dashboard.maintenance.editos",
+                component: () =>
+                  import("src/components/maintenance/EditOs.vue"),
+              },
+            ],
           },
           {
             path: "stock",
