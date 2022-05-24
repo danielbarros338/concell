@@ -112,6 +112,32 @@ const routes = [
             path: "stock",
             name: "dashboard.stock",
             component: () => import("src/views/StockPage.vue"),
+            children: [
+              {
+                path: "stocklist",
+                name: "dashboard.stock.list",
+                component: () =>
+                  import("src/components/stock/StockListComponent.vue"),
+              },
+              {
+                path: "history",
+                name: "dashboard.stock.history",
+                component: () =>
+                  import("src/components/stock/StockHistoryComponent.vue"),
+              },
+              {
+                path: "add",
+                name: "dashboard.stock.add",
+                component: () =>
+                  import("src/components/stock/AddComponent.vue"),
+              },
+              {
+                path: "delete",
+                name: "dashboard.stock.delete",
+                component: () =>
+                  import("src/components/stock/DeleteComponent.vue"),
+              },
+            ],
           },
         ],
       },
