@@ -5,7 +5,6 @@
       :rows="rows"
       :columns="columns"
       row-key="os"
-      dark
       class="table"
     />
   </div>
@@ -82,5 +81,8 @@ export default {
 <style scoped>
 .table__container {
   width: 100%;
+}
+.table {
+  background-color: var(--color-light-grey);
 }
 </style>
