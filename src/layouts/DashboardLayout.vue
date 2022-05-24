@@ -1,15 +1,10 @@
 <template>
   <q-layout>
-    <q-header class="bg-amber-7 header__container">
+    <q-header class="header__container">
       <q-toolbar>
         <q-toolbar-title> Bem vindo {{ name }} </q-toolbar-title>
-        <BaseInput>
-          <template v-slot:append>
-            <q-icon name="search" />
-          </template>
-        </BaseInput>
       </q-toolbar>
-      <q-tabs class="tab">
+      <q-tabs class="tab" active-color="grey-1" active-bg-color="grey-8">
         <q-tab @click="goTo('dashboard.home')"
           ><q-icon name="fa-solid fa-home" />Início</q-tab
         >
@@ -30,7 +25,7 @@
     <q-page-container class="route__container">
       <router-view class="router" />
     </q-page-container>
-    <q-footer class="bg-amber-7 text-caption text-right footer__container">
+    <q-footer class="text-caption text-right footer__container">
       Powered by: Daniel Barros
       <q-icon style="margin-right: 2%" name="fa-solid fa-copyright" />
     </q-footer>
@@ -58,6 +53,7 @@ export default {
 .header__container,
 .footer__container {
   color: var(--color-primary);
+  background-color: var(--color-light-grey);
 }
 .route__container {
   width: 100%;
