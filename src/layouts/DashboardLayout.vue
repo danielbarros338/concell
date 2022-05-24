@@ -3,11 +3,6 @@
     <q-header class="bg-amber-7 header__container">
       <q-toolbar>
         <q-toolbar-title> Bem vindo {{ name }} </q-toolbar-title>
-        <BaseInput>
-          <template v-slot:append>
-            <q-icon name="search" />
-          </template>
-        </BaseInput>
       </q-toolbar>
       <q-tabs class="tab">
         <q-tab @click="goTo('dashboard.home')"
