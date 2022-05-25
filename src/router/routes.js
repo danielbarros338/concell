@@ -58,24 +58,6 @@ const routes = [
             component: () => import("src/views/NewClientsPage.vue"),
             children: [
               {
-                path: "newclients/1",
-                name: "dashboard.newclients.1",
-                component: () =>
-                  import("src/components/newClients/StepOneComponent.vue"),
-              },
-              {
-                path: "newclients/2",
-                name: "dashboard.newclients.2",
-                component: () =>
-                  import("src/components/newClients/StepTwoComponent.vue"),
-              },
-              {
-                path: "newclients/3",
-                name: "dashboard.newclients.3",
-                component: () =>
-                  import("src/components/newClients/StepThreeComponent.vue"),
-              },
-              {
                 path: "newclient",
                 name: "dashboard.newclient",
                 component: () =>
