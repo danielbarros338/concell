@@ -57,6 +57,7 @@ export default {
 }
 .route__container {
   width: 100%;
+  height: 100vh;
 }
 /* Elements */
 .router {
@@ -68,5 +69,7 @@ export default {
   width: 100%;
   background-color: var(--color-primary-dark);
   box-shadow: 0 0 5px inset #000;
+  overflow-x: scroll;
+  padding: 2% 0;
 }
 </style>

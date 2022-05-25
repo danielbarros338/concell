@@ -76,6 +76,12 @@ const routes = [
                   import("src/components/newClients/StepThreeComponent.vue"),
               },
               {
+                path: "newclient",
+                name: "dashboard.newclient",
+                component: () =>
+                  import("src/components/newClients/NewClientComponent.vue"),
+              },
+              {
                 path: "clientlist",
                 name: "dashboard.clientlist",
                 component: () =>

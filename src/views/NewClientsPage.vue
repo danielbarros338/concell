@@ -1,20 +1,18 @@
 <template>
   <q-page class="client__container">
-    <div class="btn__container">
-      <q-btn
-        label="Clientes Cadastrados"
-        class="btns"
-        :to="{ name: 'dashboard.clientlist' }"
-      />
-      <q-btn
-        label="Cadastrar novos clientes"
-        class="btns"
-        :to="{ name: 'dashboard.newclients.1' }"
-      />
+    <q-tabs class="tab" active-bg-color="grey-8">
+      <q-route-tab :to="{ name: 'dashboard.newclient' }">
+        <q-icon name="person" size="24px" />
+        Cadastrar Cliente
+      </q-route-tab>
+      <q-route-tab :to="{ name: 'dashboard.clientlist' }">
+        <q-icon name="groups" size="24px" />
+        Clientes
+      </q-route-tab>
+    </q-tabs>
+    <div class="router_view__container">
+      <router-view></router-view>
     </div>
-    <q-card class="router__card">
-      <router-view />
-    </q-card>
   </q-page>
 </template>
 
@@ -26,19 +24,21 @@ export default {
 
 <style scoped>
 .client__container {
-  align-content: space-evenly;
-}
-.btn__container {
   display: flex;
-  justify-content: space-evenly;
+  align-content: flex-start;
   width: 100%;
 }
-.btns {
-  background-color: var(--color-secondary);
-  color: var(--color-primary-dark);
+.router_view__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2%;
+  width: 90%;
 }
-.router__card {
-  width: 50%;
-  height: 90%;
+/* Elements */
+.tab {
+  width: 100%;
+  color: #fff;
+  font-weight: 600;
 }
 </style>
