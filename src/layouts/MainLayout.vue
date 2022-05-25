@@ -26,7 +26,7 @@ export default {
   background-size: contain;
   background-repeat: no-repeat;
   background-position-y: center;
-  background-color: var(--color-light-grey);
+  background-color: var(--color-primary);
 }
 /* Elements */
 .router__view {

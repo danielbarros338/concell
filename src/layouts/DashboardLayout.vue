@@ -4,7 +4,7 @@
       <q-toolbar>
         <q-toolbar-title> Bem vindo {{ name }} </q-toolbar-title>
       </q-toolbar>
-      <q-tabs class="tab" active-color="grey-1" active-bg-color="grey-8">
+      <q-tabs class="tab" active-color="amber-7" active-bg-color="grey-8">
         <q-tab @click="goTo('dashboard.home')"
           ><q-icon name="fa-solid fa-home" />Início</q-tab
         >
@@ -53,7 +53,7 @@ export default {
 .header__container,
 .footer__container {
   color: var(--color-primary);
-  background-color: var(--color-light-grey);
+  background-color: var(--color-secondary);
 }
 .route__container {
   width: 100%;
