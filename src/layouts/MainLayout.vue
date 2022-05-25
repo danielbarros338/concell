@@ -22,7 +22,7 @@ export default {
 }
 .banner__container {
   width: 27vw;
-  background-image: url("../../public/logo/concell.png");
+  background-image: url("src/assets/logo/concell.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position-y: center;
