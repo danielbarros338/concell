@@ -12,7 +12,7 @@
     "serve:android": "quasar dev -m android",
     "build": "quasar build",
     "start": "node server.js",
-    "heroku-postbuild": "yarn create quasar && yarn && yarn build"
+    "heroku-postbuild": "yarn add @quasar/cli && yarn && yarn build"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
