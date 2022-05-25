@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <img src="../../public/logo/ConcellLogo.png" />
+    <img :src="require('src/assets/logo/ConcellLogo.png')" />
   </q-page>
 </template>
 

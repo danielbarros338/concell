@@ -10,9 +10,8 @@
     "format": "prettier --write \"**/*.{js,vue,css,html,md,json}\" --ignore-path .gitignore",
     "serve": "quasar dev",
     "serve:android": "quasar dev -m android",
-    "build": "quasar build -m spa",
-    "start": "node server.js",
-    "heroku-postbuild": "npm run build"
+    "build": "quasar build",
+    "start": "node server.js"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",

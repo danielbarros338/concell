@@ -69,7 +69,10 @@ export default {
   width: 100%;
   background-color: var(--color-primary-dark);
   box-shadow: 0 0 5px inset #000;
-  overflow-x: scroll;
+  overflow-y: scroll;
   padding: 2% 0;
+}
+.router::-webkit-scrollbar {
+  display: none;
 }
 </style>
