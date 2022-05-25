@@ -61,13 +61,13 @@ const routes = [
                 path: "newclient",
                 name: "dashboard.newclient",
                 component: () =>
-                  import("src/components/newClients/NewClientComponent.vue"),
+                  import("src/components/clients/NewClientComponent.vue"),
               },
               {
                 path: "clientlist",
                 name: "dashboard.clientlist",
                 component: () =>
-                  import("src/components/clientList/ClientListComponent.vue"),
+                  import("src/components/clients/ClientListComponent.vue"),
               },
             ],
           },
