@@ -10,7 +10,7 @@
     "format": "prettier --write \"**/*.{js,vue,css,html,md,json}\" --ignore-path .gitignore",
     "serve": "quasar dev",
     "serve:android": "quasar dev -m android",
-    "build": "quasar build -m spa",
+    "build": "quasar build",
     "start": "node server.js"
   },
   "dependencies": {
