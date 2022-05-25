@@ -1,42 +1,62 @@
 <template>
-  <q-card class="client_list__container">
-    <table>
-      <tr>
-        <th>ID</th>
-        <th>Nome do Cliente</th>
-        <th>Última OS</th>
-      </tr>
-      <tr>
-        <td>001</td>
-        <td>Fulano de tal</td>
-        <td>OS 000000</td>
-      </tr>
-    </table>
-  </q-card>
+  <div class="table__container">
+    <q-table
+      title="Clientes"
+      :rows="rows"
+      :columns="columns"
+      row-key="os"
+      class="table"
+    />
+  </div>
 </template>
 
 <script>
 export default {
-  name: "ClientListComponent",
+  name: "StockHistoryComponent",
+  data() {
+    return {
+      columns: [
+        {
+          name: "id",
+          required: true,
+          label: "ID do Cliente",
+          align: "left",
+          field: (row) => row.id,
+          format: (val) => `${val}`,
+          sortable: true,
+        },
+        {
+          name: "name",
+          align: "center",
+          label: "Nome Completo",
+          field: "name",
+          sortable: true,
+        },
+        {
+          name: "lastOs",
+          align: "center",
+          label: "Última OS",
+          field: "lastOs",
+          sortable: true,
+        },
+      ],
+      rows: [
+        {
+          id: 123123,
+          name: "Daniel Barros",
+          lastOs: 123123123,
+        },
+      ],
+    };
+  },
 };
 </script>
 
 <style scoped>
-.client_list__container {
-  display: flex;
-  justify-content: center;
-  padding: 2%;
-  background-color: var(--color-secondary);
+.table__container {
+  width: 100%;
 }
-table {
-  width: 90%;
-}
-table th,
-table td {
-  text-align: start;
-}
-table th:last-child,
-table td:last-child {
-  text-align: end;
+.table {
+  background-color: var(--color-light-grey);
 }
 </style>
