@@ -23,34 +23,7 @@ const routes = [
           {
             path: "newmaintenance",
             name: "dashboard.newmaintenance",
-            redirect: { name: "dashboard.newmaintenance.clientdata" },
             component: () => import("src/views/NewMaintenancePage.vue"),
-            children: [
-              {
-                path: "clientdata",
-                name: "dashboard.newmaintenance.clientdata",
-                component: () =>
-                  import(
-                    "src/components/newMaintenance/ClientDataComponent.vue"
-                  ),
-              },
-              {
-                path: "cellphonedata",
-                name: "dashboard.newmaintenance.cellphonedata",
-                component: () =>
-                  import(
-                    "src/components/newMaintenance/CellphoneDataComponent.vue"
-                  ),
-              },
-              {
-                path: "problemdesription",
-                name: "dashboard.newmaintenance.problemdescription",
-                component: () =>
-                  import(
-                    "src/components/newMaintenance/ProblemDescriptionComponent.vue"
-                  ),
-              },
-            ],
           },
           {
             path: "clients",
@@ -58,28 +31,16 @@ const routes = [
             component: () => import("src/views/NewClientsPage.vue"),
             children: [
               {
-                path: "newclients/1",
-                name: "dashboard.newclients.1",
+                path: "newclient",
+                name: "dashboard.newclient",
                 component: () =>
-                  import("src/components/newClients/StepOneComponent.vue"),
-              },
-              {
-                path: "newclients/2",
-                name: "dashboard.newclients.2",
-                component: () =>
-                  import("src/components/newClients/StepTwoComponent.vue"),
-              },
-              {
-                path: "newclients/3",
-                name: "dashboard.newclients.3",
-                component: () =>
-                  import("src/components/newClients/StepThreeComponent.vue"),
+                  import("src/components/clients/NewClientComponent.vue"),
               },
               {
                 path: "clientlist",
                 name: "dashboard.clientlist",
                 component: () =>
-                  import("src/components/clientList/ClientListComponent.vue"),
+                  import("src/components/clients/ClientListComponent.vue"),
               },
             ],
           },

@@ -1,7 +1,7 @@
 <template>
   <div class="table__container">
     <q-table
-      title="Saídas"
+      title="Clientes"
       :rows="rows"
       :columns="columns"
       row-key="os"
@@ -12,43 +12,39 @@
 
 <script>
 export default {
-  name: "StockHistoryComponent",
+  name: "ClientsListComponent",
   data() {
     return {
       columns: [
         {
-          name: "os",
+          name: "id",
           required: true,
-          label: "Ordem de Serviço",
+          label: "ID do Cliente",
           align: "left",
-          field: (row) => row.os,
+          field: (row) => row.id,
           format: (val) => `${val}`,
           sortable: true,
         },
         {
-          name: "part",
+          name: "name",
           align: "center",
-          label: "Peça",
-          field: "part",
+          label: "Nome Completo",
+          field: "name",
+          sortable: true,
+        },
+        {
+          name: "lastOs",
+          align: "center",
+          label: "Última OS",
+          field: "lastOs",
           sortable: true,
         },
       ],
       rows: [
         {
-          os: 1121212,
-          part: "Câmera LG",
-        },
-        {
-          os: 232132,
-          part: "Frontal iPhone",
-        },
-        {
-          os: 3542456,
-          part: "Processador Xiaomi",
-        },
-        {
-          os: 4455462341,
-          part: "Placa Samsung",
+          id: 123123,
+          name: "Daniel Barros",
+          lastOs: 123123123,
         },
       ],
     };
