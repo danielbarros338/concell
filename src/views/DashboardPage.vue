@@ -1,10 +1,7 @@
 <template>
-  <q-page
-    ><q-card class="dashboard__card"
-      ><h3>Seja bem vindo</h3>
-      <h5>Escolha uma das opções do menu acima para começar</h5></q-card
-    ></q-page
-  >
+  <q-page>
+    <img src="../../public/logo/ConcellLogo.png" />
+  </q-page>
 </template>
 
 <script>
@@ -14,13 +11,7 @@ export default {
 </script>
 
 <style scoped>
-/* Containers */
-.dashboard__card {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 1%;
-  background-color: var(--color-secondary);
-  width: 80%;
+img {
+  height: 60%;
 }
 </style>
