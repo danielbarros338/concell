@@ -10,7 +10,7 @@
     "format": "prettier --write \"**/*.{js,vue,css,html,md,json}\" --ignore-path .gitignore",
     "serve": "quasar dev",
     "serve:android": "quasar dev -m android",
-    "build": "npm i -g @quasar/cli quasar build",
+    "build": "quasar build",
     "start": "node server.js",
     "heroku-postbuild": "yarn && yarn build"
   },
