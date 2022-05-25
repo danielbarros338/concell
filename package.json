@@ -11,7 +11,8 @@
     "serve": "quasar dev",
     "serve:android": "quasar dev -m android",
     "build": "quasar build",
-    "start": "node server.js"
+    "start": "node server.js",
+    "heroku-postbuild": "yarn && yarn build"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
