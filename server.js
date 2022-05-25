@@ -1,9 +1,10 @@
 const express = require("express");
 const serveStatic = require("serve-static");
 const history = require("connect-history-api-fallback");
+const path = require("path");
 const app = express();
 
 app.use(history());
-app.use(serveStatic(__dirname + "/dist/spa"));
+app.use(serveStatic(path.join(__dirname + "/dist/spa")));
 
-app.listen(process.env.PORT || 3000, () => console.log("Server online"));
+app.listen(process.env.PORT || 5000, () => console.log("Server online"));
