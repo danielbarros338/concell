@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: "StockHistoryComponent",
+  name: "ClientsListComponent",
   data() {
     return {
       columns: [
