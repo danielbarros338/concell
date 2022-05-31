@@ -9,7 +9,7 @@ export const getAllParts = async () => {
   return response.json();
 };
 
-export const addPart = async (payload) => {
+export const addNewPart = async (payload) => {
   const response = await fetch(`${process.env.BASE_API}add-part`, {
     method: "POST",
     headers: {

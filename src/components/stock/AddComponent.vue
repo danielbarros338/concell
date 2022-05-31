@@ -4,7 +4,7 @@
       <h5>Reposição de peça</h5>
       <span class="inputs__container">
         <q-select
-          v-model="repositionPart.partName"
+          v-model="repositionPart.name"
           class="inputs"
           dense
           standout="bg-grey-9"
@@ -29,11 +29,11 @@
       </span>
     </div>
     <hr />
-    <div class="repo__container">
+    <q-form class="repo__container" @submit.prevent.stop="addNewPart">
       <h5>Cadastrar nova peça</h5>
       <div class="inputs__container">
         <BaseInput
-          v-model="newPart.partName"
+          v-model="newPart.name"
           class="inputs"
           label="Nome da Peça"
           maxlength="30"
@@ -51,9 +51,9 @@
           mask="#,##"
           reverse-fill-mask
         />
-        <q-btn label="Adicionar" color="grey-8" />
+        <q-btn label="Adicionar" type="submit" color="grey-8" />
       </div>
-    </div>
+    </q-form>
   </div>
 </template>
 
@@ -68,7 +68,7 @@ export default {
         value: null,
       },
       newPart: {
-        partName: "",
+        name: "",
         amount: null,
         value: null,
       },
@@ -77,6 +77,13 @@ export default {
   computed: {
     options() {
       return this.$store.state.Parts.parts.map((value) => value.name);
+    },
+  },
+  methods: {
+    async addNewPart() {
+      this.newPart.value = this.newPart.value.replace(",", ".");
+      this.newPart.value = Number(this.newPart.value);
+      await this.$store.dispatch("setPart", this.newPart);
     },
   },
 };
