@@ -2,7 +2,7 @@
   <div class="table__container">
     <q-table
       title="Lista de peças"
-      :rows="rows"
+      :rows="parts"
       :columns="columns"
       row-key="os"
       class="table"
@@ -17,63 +17,46 @@ export default {
     return {
       columns: [
         {
-          name: "partId",
+          name: "ID_part",
           required: true,
           label: "ID da peça",
           align: "left",
-          field: (row) => row.partId,
+          field: (row) => row.ID_part,
           format: (val) => `${val}`,
           sortable: true,
         },
         {
-          name: "part",
+          name: "name",
           align: "center",
           label: "Peça",
-          field: "part",
+          field: "name",
           sortable: true,
         },
+        // {
+        //   name: "stock",
+        //   align: "center",    ADICIONAR NO BANCO DE DADOS
+        //   label: "Em Estoque",
+        //   field: "stock",
+        //   sortable: true,
+        // },
         {
-          name: "stock",
-          align: "center",
-          label: "Em Estoque",
-          field: "stock",
-          sortable: true,
-        },
-        {
-          name: "price",
+          name: "value",
           align: "center",
           label: "Preço",
-          field: "price",
+          field: "value",
           sortable: true,
         },
       ],
-      rows: [
-        {
-          partId: 1,
-          part: "Frontal LG",
-          stock: 20,
-          price: 100.0,
-        },
-        {
-          partId: 2,
-          part: "Processador Xiaomi",
-          stock: 3,
-          price: 300.23,
-        },
-        {
-          partId: 3,
-          part: "Vidro Moto G4",
-          stock: 0,
-          price: 50.4,
-        },
-        {
-          partId: 4,
-          part: "Câmera iPhone X",
-          stock: 2,
-          price: 60.5,
-        },
-      ],
+      // rows: [],
     };
+  },
+  async created() {
+    await this.$store.dispatch("getParts");
+  },
+  computed: {
+    parts() {
+      return this.$store.state.Parts.parts;
+    },
   },
 };
 </script>
