@@ -11,7 +11,10 @@ export const getParts = async ({ commit }) => {
 
 export const setPart = async ({ commit }, payload) => {
   try {
-    await addNewPart(payload);
+    const response = await addNewPart(payload);
+
+    if (response.status == 201) return true;
+    if (response.status != 201) return false;
   } catch (err) {
     throw new Error(err.message);
   }

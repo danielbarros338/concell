@@ -51,7 +51,12 @@
           mask="#,##"
           reverse-fill-mask
         />
-        <q-btn label="Adicionar" type="submit" color="grey-8" />
+        <q-btn
+          label="Adicionar"
+          type="submit"
+          color="grey-8"
+          :disabled="isDisabledNewPart"
+        />
       </div>
     </q-form>
   </div>
@@ -78,12 +83,31 @@ export default {
     options() {
       return this.$store.state.Parts.parts.map((value) => value.name);
     },
+    isDisabledNewPart() {
+      const isNull = Object.values(this.newPart).filter((value) => !value);
+      return isNull.length != 0 ? true : false;
+    },
   },
   methods: {
     async addNewPart() {
       this.newPart.value = this.newPart.value.replace(",", ".");
       this.newPart.value = Number(this.newPart.value);
-      await this.$store.dispatch("setPart", this.newPart);
+
+      const response = await this.$store.dispatch("setPart", this.newPart);
+      if (response) {
+        this.$store.dispatch("getParts");
+        this.$q.notify({
+          message: "Peça adicionada com sucesso!",
+          icon: "done",
+          type: "positive",
+        });
+      } else {
+        this.$q.notify({
+          message: "Erro ao adicionar peça!",
+          icon: "sms_fail",
+          type: "negative",
+        });
+      }
     },
   },
 };
