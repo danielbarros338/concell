@@ -4,6 +4,7 @@
       <h5>Reposição de peça</h5>
       <span class="inputs__container">
         <q-select
+          v-model="repositionPart.partName"
           class="inputs"
           dense
           standout="bg-grey-9"
@@ -11,8 +12,19 @@
           label="Peça"
           :options="options"
         />
-        <BaseInput class="inputs" type="number" label="Quantidade" />
-        <BaseInput class="inputs" label="Preço (opcional)" />
+        <BaseInput
+          v-model.number="repositionPart.amount"
+          class="inputs"
+          label="Quantidade"
+          mask="###"
+        />
+        <BaseInput
+          v-model="repositionPart.value"
+          class="inputs"
+          label="Preço (opcional)"
+          mask="#,##"
+          reverse-fill-mask
+        />
         <q-btn label="Adicionar" color="grey-8" />
       </span>
     </div>
@@ -20,9 +32,25 @@
     <div class="repo__container">
       <h5>Cadastrar nova peça</h5>
       <div class="inputs__container">
-        <BaseInput class="inputs" label="Nome da Peça" />
-        <BaseInput class="inputs" type="number" label="Quantidade" />
-        <BaseInput class="inputs" label="Preço" />
+        <BaseInput
+          v-model="newPart.partName"
+          class="inputs"
+          label="Nome da Peça"
+          maxlength="30"
+        />
+        <BaseInput
+          v-model.number="newPart.amount"
+          class="inputs"
+          label="Quantidade"
+          mask="###"
+        />
+        <BaseInput
+          v-model="newPart.value"
+          class="inputs"
+          label="Preço"
+          mask="#,##"
+          reverse-fill-mask
+        />
         <q-btn label="Adicionar" color="grey-8" />
       </div>
     </div>
@@ -32,11 +60,23 @@
 <script>
 export default {
   name: "AddComponent",
+  data() {
+    return {
+      repositionPart: {
+        partName: "",
+        amount: null,
+        value: null,
+      },
+      newPart: {
+        partName: "",
+        amount: null,
+        value: null,
+      },
+    };
+  },
   computed: {
     options() {
-      const names = this.$store.state.Parts.parts;
-      console.log(names);
-      return names;
+      return this.$store.state.Parts.parts.map((value) => value.name);
     },
   },
 };
