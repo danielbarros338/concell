@@ -32,10 +32,12 @@
 <script>
 export default {
   name: "AddComponent",
-  data() {
-    return {
-      options: ["Câmera Frontal Xiaomi", "Frontal iPhone"],
-    };
+  computed: {
+    options() {
+      const names = this.$store.state.Parts.parts;
+      console.log(names);
+      return names;
+    },
   },
 };
 </script>

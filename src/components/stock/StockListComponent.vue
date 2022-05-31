@@ -32,13 +32,13 @@ export default {
           field: "name",
           sortable: true,
         },
-        // {
-        //   name: "stock",
-        //   align: "center",    ADICIONAR NO BANCO DE DADOS
-        //   label: "Em Estoque",
-        //   field: "stock",
-        //   sortable: true,
-        // },
+        {
+          name: "amount",
+          align: "center",
+          label: "Em Estoque",
+          field: "amount",
+          sortable: true,
+        },
         {
           name: "value",
           align: "center",
@@ -49,9 +49,6 @@ export default {
       ],
       // rows: [],
     };
-  },
-  async created() {
-    await this.$store.dispatch("getParts");
   },
   computed: {
     parts() {
