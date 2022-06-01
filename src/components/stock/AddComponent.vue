@@ -1,6 +1,6 @@
 <template>
   <div class="add__container">
-    <div class="repo__container">
+    <q-form @submit.prevent.stop="addStockPart" class="repo__container">
       <h5>Reposição de peça</h5>
       <span class="inputs__container">
         <q-select
@@ -25,9 +25,9 @@
           mask="#,##"
           reverse-fill-mask
         />
-        <q-btn label="Adicionar" color="grey-8" />
+        <q-btn label="Adicionar" color="grey-8" type="submit" />
       </span>
-    </div>
+    </q-form>
     <hr />
     <q-form class="repo__container" @submit.prevent.stop="addNewPart">
       <h5>Cadastrar nova peça</h5>
@@ -68,7 +68,8 @@ export default {
   data() {
     return {
       repositionPart: {
-        partName: "",
+        ID_part: null,
+        name: "",
         amount: null,
         value: null,
       },
@@ -94,6 +95,38 @@ export default {
       this.newPart.value = Number(this.newPart.value);
 
       const response = await this.$store.dispatch("setPart", this.newPart);
+      if (response) {
+        this.$store.dispatch("getParts");
+        this.$q.notify({
+          message: "Peça reposta com sucesso!",
+          icon: "done",
+          type: "positive",
+        });
+      } else {
+        this.$q.notify({
+          message: "Erro ao repor peça!",
+          icon: "sms_fail",
+          type: "negative",
+        });
+      }
+    },
+    async addStockPart() {
+      if (this.repositionPart.value) {
+        this.repositionPart.value = this.repositionPart.value.replace(",", ".");
+        this.repositionPart.value = Number(this.repositionPart.value);
+      }
+
+      const part = this.$store.state.Parts.parts.filter(
+        (value) => value.name == this.repositionPart.name
+      )[0];
+
+      this.repositionPart.ID_part = part.ID_part;
+      this.repositionPart.amount += part.amount;
+
+      const response = await this.$store.dispatch(
+        "updateQuantityPart",
+        this.repositionPart
+      );
       if (response) {
         this.$store.dispatch("getParts");
         this.$q.notify({

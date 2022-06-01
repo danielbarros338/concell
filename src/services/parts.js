@@ -21,8 +21,20 @@ export const addNewPart = async (payload) => {
   return response.json();
 };
 
+export const deleteSomePart = async (payload) => {
+  const response = await fetch(`${process.env.BASE_API}delete-part`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
+
+  return response.json();
+};
+
 export const updateSomePart = async (payload) => {
-  const response = await fetch(`${process.env.BASE_API}update-part`, {
+  const response = await fetch(`${process.env.BASE_API}add-some-part`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
