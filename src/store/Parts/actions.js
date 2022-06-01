@@ -1,4 +1,4 @@
-import { getAllParts, addNewPart, deleteSomePart } from "src/services/parts.js";
+import { getAllParts, addNewPart, updateSomePart } from "src/services/parts.js";
 
 export const getParts = async ({ commit }) => {
   try {
@@ -20,9 +20,9 @@ export const setPart = async ({ commit }, payload) => {
   }
 };
 
-export const deleteQuantityPart = async ({ commit }, payload) => {
+export const updateQuantityPart = async ({ commit }, payload) => {
   try {
-    const response = await deleteSomePart(payload);
+    const response = await updateSomePart(payload);
 
     if (response.status == 200) return true;
     if (response.status != 200) return false;

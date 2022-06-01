@@ -21,9 +21,9 @@ export const addNewPart = async (payload) => {
   return response.json();
 };
 
-export const deleteSomePart = async (payload) => {
-  const response = await fetch(`${process.env.BASE_API}delete-part`, {
-    method: "DELETE",
+export const updateSomePart = async (payload) => {
+  const response = await fetch(`${process.env.BASE_API}update-part`, {
+    method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },
