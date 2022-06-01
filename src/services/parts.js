@@ -44,3 +44,14 @@ export const updateSomePart = async (payload) => {
 
   return response.json();
 };
+
+export const getAllUsedParts = async (payload) => {
+  const response = await fetch(`${process.env.BASE_API}get-used-parts`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  return response.json();
+};

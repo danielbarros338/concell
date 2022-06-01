@@ -2,7 +2,7 @@
   <div class="table__container">
     <q-table
       title="Saídas"
-      :rows="rows"
+      :rows="options"
       :columns="columns"
       row-key="os"
       class="table"
@@ -17,41 +17,28 @@ export default {
     return {
       columns: [
         {
-          name: "os",
+          name: "OS_number",
           required: true,
           label: "Ordem de Serviço",
           align: "left",
-          field: (row) => row.os,
+          field: (row) => row.OS_number,
           format: (val) => `${val}`,
           sortable: true,
         },
         {
-          name: "part",
+          name: "name",
           align: "center",
           label: "Peça",
-          field: "part",
+          field: "name",
           sortable: true,
         },
       ],
-      rows: [
-        {
-          os: 1121212,
-          part: "Câmera LG",
-        },
-        {
-          os: 232132,
-          part: "Frontal iPhone",
-        },
-        {
-          os: 3542456,
-          part: "Processador Xiaomi",
-        },
-        {
-          os: 4455462341,
-          part: "Placa Samsung",
-        },
-      ],
     };
+  },
+  computed: {
+    options() {
+      return this.$store.state.Parts.usedParts;
+    },
   },
 };
 </script>

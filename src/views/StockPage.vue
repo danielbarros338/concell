@@ -29,6 +29,7 @@ export default {
   name: "StockPage",
   async created() {
     await this.$store.dispatch("getParts");
+    await this.$store.dispatch("getUsedParts");
   },
 };
 </script>
