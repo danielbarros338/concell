@@ -46,7 +46,9 @@ module.exports = configure(function (ctx) {
     build: {
       vueRouterMode: "history", // available values: 'hash', 'history'
       env: {
-        BASE_API: ctx.dev ? "http://localhost:3000/" : "http://localhost:3000/",
+        BASE_API: ctx.dev
+          ? "http://localhost:3000/"
+          : "http://concellapi.herokuapp.com/",
       },
       chainWebpack(chain) {
         chain
