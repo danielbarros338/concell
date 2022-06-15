@@ -12,7 +12,7 @@
     "serve:android": "quasar dev -m android",
     "build": "quasar build",
     "start": "node server.js",
-    "postinstall": "npm run build"
+    "postinstall": "npm i && npm run build"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
