@@ -2,7 +2,7 @@
   <div class="table__container">
     <q-table
       title="Histórico"
-      :rows="rows"
+      :rows="listOs"
       :columns="columns"
       row-key="os"
       class="table"
@@ -17,63 +17,42 @@ export default {
     return {
       columns: [
         {
-          name: "os",
+          name: "OS_number",
           required: true,
           label: "Ordem de Serviço",
           align: "left",
-          field: (row) => row.os,
+          field: (row) => row.OS_number,
           format: (val) => `${val}`,
           sortable: true,
         },
         {
-          name: "mobile",
+          name: "model",
           align: "center",
           label: "Aparelho",
-          field: "mobile",
+          field: "model",
           sortable: true,
         },
         {
-          name: "client",
+          name: "name",
           align: "center",
           label: "Cliente",
-          field: "client",
+          field: "name",
           sortable: true,
         },
         {
-          name: "end",
+          name: "finishAt",
           align: "center",
           label: "Data de término",
-          field: "end",
+          field: "finishAt",
           sortable: true,
-        },
-      ],
-      rows: [
-        {
-          os: 1,
-          mobile: "LG K14s",
-          client: "Daniel Barros",
-          end: "05/10/22",
-        },
-        {
-          os: 2,
-          mobile: "Moto g4",
-          client: "Armando Barros",
-          end: "05/10/22",
-        },
-        {
-          os: 3,
-          mobile: "Xiaomi",
-          client: "Lucas Barros",
-          end: "05/10/22",
-        },
-        {
-          os: 4,
-          mobile: "Samsung j4",
-          client: "Daniel Barros",
-          end: "05/10/22",
         },
       ],
     };
+  },
+  computed: {
+    listOs() {
+      return this.$store.state.Problems.osList;
+    },
   },
 };
 </script>
