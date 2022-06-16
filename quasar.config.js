@@ -48,7 +48,7 @@ module.exports = configure(function (ctx) {
       env: {
         BASE_API: ctx.dev
           ? "http://localhost:3000/"
-          : "http://concellapi.herokuapp.com/",
+          : "https://concellapi.herokuapp.com/",
       },
       chainWebpack(chain) {
         chain
