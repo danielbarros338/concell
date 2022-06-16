@@ -75,6 +75,14 @@ export default {
       ],
     };
   },
+  async created() {
+    await this.$store.dispatch("getAllOs");
+  },
+  computed: {
+    osList() {
+      return this.$store.state.Problems.osList;
+    },
+  },
 };
 </script>
 
