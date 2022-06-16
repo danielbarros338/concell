@@ -2,7 +2,7 @@
   <div class="table__container">
     <q-table
       title="Ordens de Serviço"
-      :rows="rows"
+      :rows="osList"
       :columns="columns"
       row-key="os"
       class="table"
@@ -17,63 +17,44 @@ export default {
     return {
       columns: [
         {
-          name: "os",
+          name: "OS_number",
           required: true,
           label: "Ordem de Serviço",
           align: "left",
-          field: (row) => row.os,
+          field: (row) => row.OS_number,
           format: (val) => `${val}`,
           sortable: true,
         },
         {
-          name: "mobile",
+          name: "model",
           align: "center",
           label: "Aparelho",
-          field: "mobile",
+          field: "model",
           sortable: true,
         },
         {
-          name: "client",
+          name: "name",
           align: "center",
           label: "Cliente",
-          field: "client",
+          field: "name",
           sortable: true,
         },
         {
-          name: "status",
+          name: "maintenance_status",
           align: "center",
           label: "Status",
-          field: "status",
+          field: "maintenance_status",
           sortable: true,
-        },
-      ],
-      rows: [
-        {
-          os: 1,
-          mobile: "LG K14s",
-          client: "Daniel Barros",
-          status: "Aprovado",
-        },
-        {
-          os: 2,
-          mobile: "Moto g4",
-          client: "Armando Barros",
-          status: "Em manutenção",
-        },
-        {
-          os: 3,
-          mobile: "Xiaomi",
-          client: "Lucas Barros",
-          status: "Reprovado",
-        },
-        {
-          os: 4,
-          mobile: "Samsung j4",
-          client: "Daniel Barros",
-          status: "Finalizado",
         },
       ],
     };
+  },
+  computed: {
+    osList() {
+      return this.$store.state.Problems.osList.filter(
+        (value) => value.finishAt == "Não finalizada"
+      );
+    },
   },
 };
 </script>

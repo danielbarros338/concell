@@ -23,6 +23,9 @@
 <script>
 export default {
   name: "MaintenancePage",
+  async created() {
+    await this.$store.dispatch("getAllOs");
+  },
 };
 </script>
 

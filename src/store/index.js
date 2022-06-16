@@ -3,12 +3,14 @@ import { createStore } from "vuex";
 
 import NewClient from "./NewClient";
 import Parts from "./Parts";
+import Problems from "./Problems";
 
 export default store(function (/* { ssrContext } */) {
   const Store = createStore({
     modules: {
       NewClient,
       Parts,
+      Problems,
     },
     strict: process.env.DEBUGGING,
   });
