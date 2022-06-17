@@ -19,6 +19,9 @@
 <script>
 export default {
   name: "NewClients",
+  async created() {
+    await this.$store.dispatch("getAllPeople");
+  },
 };
 </script>
 
