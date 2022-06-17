@@ -4,6 +4,7 @@ import { createStore } from "vuex";
 import NewClient from "./NewClient";
 import Parts from "./Parts";
 import Problems from "./Problems";
+import Person from "./Person";
 
 export default store(function (/* { ssrContext } */) {
   const Store = createStore({
@@ -11,6 +12,7 @@ export default store(function (/* { ssrContext } */) {
       NewClient,
       Parts,
       Problems,
+      Person,
     },
     strict: process.env.DEBUGGING,
   });
