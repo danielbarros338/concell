@@ -1,143 +1,42 @@
 <template>
-  <q-form class="new_client__container" @submit.prevent.stop="insertData">
+  <div class="new_client__container">
     <h4>Insira os dados do cliente</h4>
     <div class="personal__data">
       <h5>Dados pessoais</h5>
-      <BaseInput
-        v-model="client.name"
-        class="inputs"
-        label="Nome"
-        maxlength="50"
-      />
-      <BaseInput
-        v-model="client.surname"
-        class="inputs"
-        label="Sobrenome"
-        maxlength="100"
-      />
-      <BaseInput
-        v-model="client.rg"
-        class="inputs"
-        label="RG"
-        unmasked-value
-        mask="##.###.###-#"
-      />
-      <BaseInput
-        v-model="client.cpf"
-        class="inputs"
-        label="CPF"
-        unmasked-value
-        mask="###.###.###-##"
-      />
+      <BaseInput class="inputs" label="Nome" maxlength="50" />
+      <BaseInput class="inputs" label="Sobrenome" maxlength="100" />
+      <BaseInput class="inputs" label="RG" mask="##.###.###-#" />
+      <BaseInput class="inputs" label="CPF" mask="###.###.###-##" />
     </div>
     <hr />
     <div class="address__data">
       <h5>Endereço</h5>
-      <BaseInput
-        v-model="client.state"
-        class="inputs"
-        label="Estado (UF)"
-        maxlength="2"
-      />
-      <BaseInput
-        v-model="client.city"
-        class="inputs"
-        label="Cidade"
-        maxlength="50"
-      />
-      <BaseInput
-        v-model="client.district"
-        class="inputs"
-        label="Bairro"
-        maxlength="100"
-      />
-      <BaseInput
-        v-model="client.street"
-        class="inputs"
-        label="Rua"
-        maxlength="100"
-      />
-      <BaseInput
-        v-model="client.comp"
-        class="inputs"
-        label="Complemento (opcional)"
-        maxlength="50"
-      />
-      <BaseInput
-        v-model="client.cep"
-        class="inputs"
-        label="CEP"
-        maxlength="50"
-        unmasked-value
-        mask="#####-###"
-      />
+      <BaseInput class="inputs" label="Estado (UF)" maxlength="2" />
+      <BaseInput class="inputs" label="Cidade" maxlength="50" />
+      <BaseInput class="inputs" label="Bairro" maxlength="100" />
+      <BaseInput class="inputs" label="Rua" maxlength="100" />
+      <BaseInput class="inputs" label="Complemento (opcional)" maxlength="50" />
+      <BaseInput class="inputs" label="CEP" maxlength="50" />
     </div>
     <hr />
     <div class="contact__data">
       <h5>Contato</h5>
       <BaseInput
-        v-model="client.cellphone"
         class="inputs"
         label="Telefone para contato"
         maxlength="(##) #-####-####"
       />
-      <BaseInput
-        v-model="client.email"
-        class="inputs"
-        label="Email"
-        maxlength="50"
-      />
+      <BaseInput class="inputs" label="Email" maxlength="50" />
     </div>
     <div class="btn__container">
-      <q-btn class="btn" label="Cadastrar" color="grey-8" type="submit" />
+      <q-btn class="btn" label="Cadastrar" color="grey-8" />
     </div>
-  </q-form>
+  </div>
 </template>
 
 <script>
 export default {
   name: "NewClientComponent",
-  data() {
-    return {
-      client: {
-        name: null,
-        surname: null,
-        rg: null,
-        cpf: null,
-        state: null,
-        city: null,
-        district: null,
-        street: null,
-        comp: null,
-        cep: null,
-        cellphone: null,
-        email: null,
-      },
-    };
-  },
-  methods: {
-    async insertData() {
-      let response = await this.$store.dispatch("insertPeople", this.client);
-      console.log(response);
-
-      if (response.code == 201) {
-        this.$q.notify({
-          message: response.message,
-          icon: "check",
-          color: "positive",
-        });
-
-        this.$router.push({ name: "dashboard.newmaintenance" });
-      }
-
-      if (response.code != 201)
-        this.$q.notify({
-          message: response.message,
-          icon: "cancel",
-          color: "negative",
-        });
-    },
-  },
 };
 </script>
 
