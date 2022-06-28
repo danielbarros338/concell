@@ -1,0 +1,16 @@
+:root {
+  --color-primary: #545454;
+  --color-primary-dark: #434343;
+  --color-secondary: #ffae00;
+  --color-secondary-dark: #ff9000;
+
+  --color-light-grey: #eaeaea;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Titillium+Web:wght@200&display=swap");
+
+* {
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+}
