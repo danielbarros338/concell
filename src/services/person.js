@@ -20,3 +20,14 @@ export const createUser = async (payload) => {
 
   return response.json();
 };
+
+export const getNamePeople = async () => {
+  const response = await fetch(`${process.env.BASE_API}get-people-name`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  return response.json();
+};

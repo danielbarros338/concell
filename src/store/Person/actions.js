@@ -17,3 +17,11 @@ export const insertPeople = async (store, payload) => {
     throw new Error(err.message);
   }
 };
+
+export const getNamePeoples = async () => {
+  try {
+    return await person.getNamePeople();
+  } catch (err) {
+    throw new Error(err.message);
+  }
+};
