@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <div class="new_maintenance__container">
+    <q-form class="new_maintenance__container" @submit.prevent.stop="saveData">
       <h4>Criando nova Ordem de Serviço</h4>
       <div class="client__data">
         <h5>Cliente</h5>
@@ -58,9 +58,9 @@
         />
       </div>
       <div class="btn__container">
-        <q-btn class="btn" label="Cadastrar" color="grey-8" />
+        <q-btn class="btn" label="Cadastrar" color="grey-8" type="submit" />
       </div>
-    </div>
+    </q-form>
   </q-page>
 </template>
 
@@ -85,6 +85,16 @@ export default {
   async created() {
     this.clients = await this.$store.dispatch("getNamePeoples");
     this.clientsName = this.clients.map((value) => value.name);
+  },
+  methods: {
+    async saveData() {
+      const client = this.clients.find(
+        (value) => value.name == this.client.name
+      );
+      this.client.ID_client = client.ID_client;
+
+      await this.$store.dispatch("createNewOs", this.client);
+    },
   },
 };
 </script>
