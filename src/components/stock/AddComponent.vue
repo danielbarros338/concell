@@ -105,7 +105,7 @@ export default {
       } else {
         this.$q.notify({
           message: "Erro ao repor peça!",
-          icon: "sms_fail",
+          icon: "cancel",
           type: "negative",
         });
       }

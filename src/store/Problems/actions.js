@@ -11,7 +11,7 @@ export const getAllOs = async ({ commit }) => {
 
 export const createNewOs = async (store, payload) => {
   try {
-    const response = problems.createOs(payload);
+    const response = await problems.createOs(payload);
     console.log(response);
     return response;
   } catch (err) {

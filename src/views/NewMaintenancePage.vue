@@ -93,7 +93,21 @@ export default {
       );
       this.client.ID_client = client.ID_client;
 
-      await this.$store.dispatch("createNewOs", this.client);
+      const response = await this.$store.dispatch("createNewOs", this.client);
+
+      if (response[0].statusCode == 201) {
+        this.$q.notify({
+          message: response[0].message,
+          icon: "done",
+          type: "positive",
+        });
+      } else {
+        this.$q.notify({
+          message: "Erro ao criar OS",
+          icon: "cancel",
+          type: "negative",
+        });
+      }
     },
   },
 };
