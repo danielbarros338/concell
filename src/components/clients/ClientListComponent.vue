@@ -2,7 +2,7 @@
   <div class="table__container">
     <q-table
       title="Clientes"
-      :rows="rows"
+      :rows="clientList"
       :columns="columns"
       row-key="os"
       class="table"
@@ -17,11 +17,11 @@ export default {
     return {
       columns: [
         {
-          name: "id",
+          name: "ID_client",
           required: true,
           label: "ID do Cliente",
           align: "left",
-          field: (row) => row.id,
+          field: (row) => row.ID_client,
           format: (val) => `${val}`,
           sortable: true,
         },
@@ -40,14 +40,18 @@ export default {
           sortable: true,
         },
       ],
-      rows: [
-        {
-          id: 123123,
-          name: "Daniel Barros",
-          lastOs: 123123123,
-        },
-      ],
     };
+  },
+  computed: {
+    clientList() {
+      return this.$store.state.Person.people.map((value) => {
+        return {
+          ID_client: value.ID_client,
+          name: `${value.name} ${value.surname}`,
+          lastOs: value.lastOs,
+        };
+      });
+    },
   },
 };
 </script>

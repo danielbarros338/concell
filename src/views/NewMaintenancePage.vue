@@ -1,34 +1,56 @@
 <template>
   <q-page>
-    <div class="new_maintenance__container">
+    <q-form class="new_maintenance__container" @submit.prevent.stop="saveData">
       <h4>Criando nova Ordem de Serviço</h4>
       <div class="client__data">
         <h5>Cliente</h5>
         <small>Selecione o cliente pelo nome ou ID</small>
-        <BaseInput class="inputs" label="ID" maxlength="50" />
+        <BaseInput
+          v-model="client.ID_client"
+          class="inputs"
+          label="ID"
+          maxlength="50"
+        />
         <q-select
+          v-model="client.name"
           dense
           class="inputs"
           standout="bg-grey-9"
           color="grey-9"
           label="Nome do cliente"
-          :options="options"
+          :options="clientsName"
         />
       </div>
       <hr />
       <div class="mobile__data">
         <h5>Celular</h5>
         <small>Insira as informações relacionadas ao problema no celular</small>
-        <BaseInput class="inputs" label="Marca" maxlength="2" />
-        <BaseInput class="inputs" label="Modelo" maxlength="50" />
-        <BaseInput class="inputs" label="Série" maxlength="100" />
-        <BaseInput class="inputs" label="IMEI" maxlength="100" />
+        <BaseInput v-model="client.brand" class="inputs" label="Marca" />
+        <BaseInput
+          v-model="client.model"
+          class="inputs"
+          label="Modelo"
+          maxlength="50"
+        />
+        <BaseInput
+          v-model="client.nr_serie"
+          class="inputs"
+          label="Série"
+          maxlength="100"
+        />
+        <BaseInput
+          v-model="client.imei"
+          class="inputs"
+          label="IMEI"
+          maxlength="100"
+        />
       </div>
       <hr />
       <div class="problem__data">
         <h5>Problema</h5>
         <small>Descreva o problema relatado pelo cliente</small>
         <BaseInput
+          v-model="client.description"
           class="inputs"
           type="textarea"
           label="Descreva o problema"
@@ -36,9 +58,9 @@
         />
       </div>
       <div class="btn__container">
-        <q-btn class="btn" label="Cadastrar" color="grey-8" />
+        <q-btn class="btn" label="Cadastrar" color="grey-8" type="submit" />
       </div>
-    </div>
+    </q-form>
   </q-page>
 </template>
 
@@ -47,8 +69,46 @@ export default {
   name: "NewMaintenanceComponent",
   data() {
     return {
-      options: ["Fulanin", "Cicranin"],
+      clients: [],
+      clientsName: [],
+      client: {
+        ID_client: null,
+        name: "",
+        brand: "",
+        model: "",
+        nr_serie: "",
+        imei: null,
+        description: "",
+      },
     };
+  },
+  async created() {
+    this.clients = await this.$store.dispatch("getNamePeoples");
+    this.clientsName = this.clients.map((value) => value.name);
+  },
+  methods: {
+    async saveData() {
+      const client = this.clients.find(
+        (value) => value.name == this.client.name
+      );
+      this.client.ID_client = client.ID_client;
+
+      const response = await this.$store.dispatch("createNewOs", this.client);
+
+      if (response[0].statusCode == 201) {
+        this.$q.notify({
+          message: response[0].message,
+          icon: "done",
+          type: "positive",
+        });
+      } else {
+        this.$q.notify({
+          message: "Erro ao criar OS",
+          icon: "cancel",
+          type: "negative",
+        });
+      }
+    },
   },
 };
 </script>
